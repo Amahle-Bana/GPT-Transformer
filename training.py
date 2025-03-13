@@ -14,10 +14,11 @@ from torch.utils.data import TensorDataset, Dataset, DataLoader
 import torch.optim as optim
 import heapq
 from typing import Dict, List, Tuple
-from inference import model_name, model_instance
+from inference import model_name, model_instance, device
 from dataloading import learning_rate, batch_size, train_loader, epochs  
+import torch
 
-
+# Saving the model
 def save_model(model, optimizer, epoch, total_epochs, loss, perplexity, checkpoint_dir: str = "./checkpoints", num_checkpoints=3, save_every=10):
     if ( epoch % save_every  == 0):
         os.makedirs(checkpoint_dir, exist_ok=True)
@@ -49,6 +50,7 @@ def save_model(model, optimizer, epoch, total_epochs, loss, perplexity, checkpoi
             if len(saved_checkpoints) >= num_checkpoints:
                 os.remove(saved_checkpoints[-1][1])
 
+# Training the model
 def train_model(model, train_loader, epochs):
     """
     Trains the given PyTorch model.
@@ -58,8 +60,9 @@ def train_model(model, train_loader, epochs):
         train_loader: A DataLoader for the training dataset.
         epochs: The number of training epochs.
     """
+    print(device)
     run = wandb.init(
-        project = "Class Demo 2",
+        project = "GROUP3-GPT-TRANSFORMER-DEMO",
         config = {
             "model_name": model.model_name,
             "learning_rate": learning_rate,
@@ -120,12 +123,13 @@ def train_model(model, train_loader, epochs):
     model.eval()
     return model
 
-
+# Training the model
 trained_model = train_model(model_instance, train_loader, epochs)
 
-prompt = "Good morning."
+# Generating output
+prompt = "Good morning"
 output, tokens = trained_model.generate(prompt , max_output=100)
 print(output)
-# print(tokens)
 
+# print(tokens)
 print(tokens.shape)

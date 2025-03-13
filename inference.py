@@ -14,10 +14,10 @@ import heapq
 from typing import Dict, List, Tuple
 from torchinfo import summary
 
-# Import the custom model (Ensure model.py exists in the same directory)
+# Importing the custom model
 from model import DecoderOnlyModel
 
-# Define model parameters
+# Defining model parameters
 model_name = "GROUP3-GPT-TRANSFORMER-DEMO"
 num_layers = 3
 num_heads = 8
@@ -26,10 +26,10 @@ dropout_rate = 0.1
 context_length = 500
 with_encoder = False
 
-# Set device
+# Setting device
 device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
 
-# Initialize the model
+# Initializing the model
 model_instance = DecoderOnlyModel(
     num_layers=num_layers,
     num_heads=num_heads,
@@ -41,6 +41,7 @@ model_instance = DecoderOnlyModel(
 )
 model_instance = model_instance.to(device)
 
+# Running The File
 if __name__ == "__main__":
     # Define prompt
     prompt = "Hello there, how are you today???!"
@@ -54,6 +55,3 @@ if __name__ == "__main__":
 
     # Ensure input shape is compatible
     input_data = context_input.unsqueeze(0)  # Adding batch dimension if needed
-
-    # Display model summary
-    summary(model_instance, input_data=input_data, device=model_instance.device)

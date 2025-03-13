@@ -1,0 +1,23 @@
+2025-03-12 12:33:43,827 INFO    MainThread:6408 [wandb_setup.py:_flush():67] Current SDK version is 0.19.8
+2025-03-12 12:33:43,827 INFO    MainThread:6408 [wandb_setup.py:_flush():67] Configure stats pid to 6408
+2025-03-12 12:33:43,827 INFO    MainThread:6408 [wandb_setup.py:_flush():67] Loading settings from C:\Users\USER-PC\.config\wandb\settings
+2025-03-12 12:33:43,827 INFO    MainThread:6408 [wandb_setup.py:_flush():67] Loading settings from C:\Users\USER-PC\Desktop\GPT-Transformer-main\wandb\settings
+2025-03-12 12:33:43,827 INFO    MainThread:6408 [wandb_setup.py:_flush():67] Loading settings from environment variables
+2025-03-12 12:33:43,827 INFO    MainThread:6408 [wandb_init.py:setup_run_log_directory():647] Logging user logs to C:\Users\USER-PC\Desktop\GPT-Transformer-main\wandb\run-20250312_123343-gf0e5ulo\logs\debug.log
+2025-03-12 12:33:43,827 INFO    MainThread:6408 [wandb_init.py:setup_run_log_directory():648] Logging internal logs to C:\Users\USER-PC\Desktop\GPT-Transformer-main\wandb\run-20250312_123343-gf0e5ulo\logs\debug-internal.log
+2025-03-12 12:33:43,828 INFO    MainThread:6408 [wandb_init.py:init():761] calling init triggers
+2025-03-12 12:33:43,828 INFO    MainThread:6408 [wandb_init.py:init():766] wandb.init called with sweep_config: {}
+config: {'model_name': 'GROUP3-GPT-TRANSFORMER-DEMO', 'learning_rate': 1e-05, 'epochs': 500, 'batch_size': 64, 'num_layers': 3, 'num_heads': 8, 'embed_dim': 512, 'dropout_rate': 0.1, 'device': device(type='cuda'), '_wandb': {}}
+2025-03-12 12:33:43,828 INFO    MainThread:6408 [wandb_init.py:init():784] starting backend
+2025-03-12 12:33:43,828 INFO    MainThread:6408 [wandb_init.py:init():788] sending inform_init request
+2025-03-12 12:33:43,964 INFO    MainThread:6408 [backend.py:_multiprocessing_setup():101] multiprocessing start_methods=spawn, using: spawn
+2025-03-12 12:33:43,964 INFO    MainThread:6408 [wandb_init.py:init():798] backend started and connected
+2025-03-12 12:33:44,001 INFO    MainThread:6408 [wandb_init.py:init():891] updated telemetry
+2025-03-12 12:33:44,003 INFO    MainThread:6408 [wandb_init.py:init():915] communicating run to backend with 90.0 second timeout
+2025-03-12 12:33:44,958 INFO    MainThread:6408 [wandb_init.py:init():990] starting run threads in backend
+2025-03-12 12:33:45,066 INFO    MainThread:6408 [wandb_run.py:_console_start():2375] atexit reg
+2025-03-12 12:33:45,066 INFO    MainThread:6408 [wandb_run.py:_redirect():2227] redirect: wrap_raw
+2025-03-12 12:33:45,067 INFO    MainThread:6408 [wandb_run.py:_redirect():2292] Wrapping output streams.
+2025-03-12 12:33:45,067 INFO    MainThread:6408 [wandb_run.py:_redirect():2315] Redirects installed.
+2025-03-12 12:33:45,072 INFO    MainThread:6408 [wandb_init.py:init():1032] run started, returning control to user process
+2025-03-12 12:33:54,452 INFO    MsgRouterThr:6408 [mailbox.py:close():129] Closing mailbox, abandoning 1 handles.

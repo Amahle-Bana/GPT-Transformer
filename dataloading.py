@@ -16,11 +16,13 @@ import heapq
 from typing import Dict, List, Tuple
 from inference import model_instance
 
-
+# Defining epochs, learning_rate, batch_size
 epochs = 500
 learning_rate = 1e-5
-batch_size = 4
+batch_size = 16
 
+
+# Defining the LanguageModellingDataset class
 class LanguageModellingDataset(Dataset):
     def __init__(self, text_src, tokenizer, context_length=100, stride=50):
         self.tokenizer = tokenizer
@@ -65,25 +67,44 @@ class LanguageModellingDataset(Dataset):
         return { "input_ids": input_ids,  "attention_mask": attention_mask,  "labels": labels}
 
 
-
-
+# Loading the training data
 with open("Cleaned_Transformer_Training_Dataset.txt", "r", encoding="utf-8") as file:
-    pretraining_text_src = file.read()
+    pretraining_text_src = file.readlines()
 
-text_src = pretraining_text_src
 
+# Shuffling the data
+random.shuffle(pretraining_text_src)
+
+# Calculating split index
+split_index = int(0.8 * len(pretraining_text_src))
+
+# Splitting data
+train_data = pretraining_text_src[:split_index]
+test_data = pretraining_text_src[split_index:]
+
+# Save the split data
+with open('cleaned_train_data.txt', 'w') as train_file:
+    train_file.writelines(train_data)
+
+with open('cleaned_test_data.txt', 'w') as test_file:
+    test_file.writelines(test_data)
+
+# Load the train data
+with open("cleaned_train_data.txt", "r", encoding="utf-8") as file:
+    train_text_src = file.readlines()
+
+# Loading the text source data
+text_src = train_text_src
+
+# Creating the dataset
 dataset = LanguageModellingDataset(
-    text_src=pretraining_text_src, tokenizer=model_instance.tokenizer,
+    text_src=text_src, tokenizer=model_instance.tokenizer,
     context_length=model_instance.context_length,
     stride=model_instance.context_length // 2,
 )
+
+# Printing the length of the dataset
 print( dataset.__len__() )
-# print(dataset.texts)
-# print(dataset.__getitem__(0)['input_ids'])
-# print(dataset.__getitem__(0)['labels'])
 
-# print(dataset.__getitem__(0)['input_ids'])
-# print(dataset.__getitem__(0)['labels'])
-# print(model_instance.tokenizer.decode(dataset.__getitem__(0)['labels']))
-
+# Creating the train loader
 train_loader = DataLoader(dataset, batch_size=batch_size, shuffle=True)

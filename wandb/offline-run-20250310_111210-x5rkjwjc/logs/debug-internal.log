@@ -1,0 +1,7 @@
+{"time":"2025-03-10T11:12:11.0348191+02:00","level":"INFO","msg":"stream: starting","core version":"0.19.8","symlink path":"C:\\Users\\USER-PC\\Desktop\\GPT-Transformer-main\\wandb\\offline-run-20250310_111210-x5rkjwjc\\logs\\debug-core.log"}
+{"time":"2025-03-10T11:12:11.4481038+02:00","level":"INFO","msg":"created new stream","id":"x5rkjwjc"}
+{"time":"2025-03-10T11:12:11.4481038+02:00","level":"INFO","msg":"stream: started","id":"x5rkjwjc"}
+{"time":"2025-03-10T11:12:11.4481038+02:00","level":"INFO","msg":"handler: started","stream_id":"x5rkjwjc"}
+{"time":"2025-03-10T11:12:11.4481038+02:00","level":"INFO","msg":"writer: Do: started","stream_id":"x5rkjwjc"}
+{"time":"2025-03-10T11:12:11.4486226+02:00","level":"INFO","msg":"sender: started","stream_id":"x5rkjwjc"}
+{"time":"2025-03-10T11:12:11.4550778+02:00","level":"INFO","msg":"Starting system monitor"}
